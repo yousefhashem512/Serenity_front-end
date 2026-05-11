@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-spa-gold: #AA8453;
+  --color-spa-gold2: #C69B37;
+  --color-spa-brown-dark: #2C1810;
+  --color-spa-brown-text: #2F1E19;
+  --color-spa-brown-mid: #7A6455;
+  --color-spa-bg: #FAF8F4;
+  --color-spa-border: #E8E0D5;
+  --color-spa-input: #6B7280;
+
+  --font-cairo: "Cairo", sans-serif;
+  --font-amiri: "Amiri", serif;
+}
+
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+  width: 100%;
+}
+

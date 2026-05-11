@@ -1,0 +1,76 @@
+/*
+  heroSection.css
+  Companion styles for HeroSection.jsx
+  Import this file inside HeroSection:  import './heroSection.css';
+*/
+
+/* ─── Base (Mobile-first): single column, stacked ─────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "image"
+    "text"
+    "form";
+  gap: 3rem; /* space-y-12 equivalent */
+}
+
+.hero-image { grid-area: image; }
+.hero-text  { grid-area: text;  }
+.hero-form  { grid-area: form;  }
+
+/* Form is centred on mobile / tablet */
+.hero-form > div {
+  max-width: 42rem; /* max-w-2xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ─── Tablet (lg: 1024 px): image + text on row 1, form centred on row 2 ──── */
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "image text"
+      "form  form";
+    gap: 2rem 2rem;
+  }
+
+  .hero-image { align-self: center; }
+  .hero-text  { align-self: center; }
+}
+
+/* ─── Desktop (xl: 1280 px): all three side-by-side in one row ─────────────── */
+@media (min-width: 1280px) {
+  .hero-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "image text form";
+    gap: 2rem;
+    align-items: center;
+  }
+
+  /* Form loses the max-width cap so it fills its column */
+  .hero-form > div {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ─── RTL variants ──────────────────────────────────────────────────────────── */
+
+/* Tablet RTL: flip image and text columns */
+@media (min-width: 1024px) {
+  .hero-grid--rtl {
+    grid-template-areas:
+      "text image"
+      "form form";
+  }
+}
+
+/* Desktop RTL: reverse all three columns → form | text | image */
+@media (min-width: 1280px) {
+  .hero-grid--rtl {
+    grid-template-areas: "form text image";
+  }
+}
