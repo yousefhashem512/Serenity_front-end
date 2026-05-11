@@ -1,8 +1,8 @@
 import Image1 from '../assets/image/AboutImg1.png';
 import Image2 from '../assets/image/Sec2Img2.png';
-import Avatar1 from '../assets/image/avatar1.png';
-import Avatar2 from '../assets/image/avatar2.png';
-import Avatar3 from '../assets/image/avatar3.png';
+import Avatar1 from '../assets/image/Avatar1.png';
+import Avatar2 from '../assets/image/Avatar2.png';
+import Avatar3 from '../assets/image/Avatar3.png';
 import IconGiest from '../assets/image/BeGiestIcon3.svg';
 import IconGiest2 from '../assets/image/BeGiestIcon2.png';
 import LikeImage from '../assets/image/LikeImage.png';
@@ -39,8 +39,6 @@ const About = () => {
   const isRtl = lang === 'ar';
 
   return (
-
-
 
     <section id="about" className="py-16 xl:py-24" dir={isRtl ? 'rtl' : 'ltr'}>
       {/* ══════════════════════════════════════════════
