@@ -1,7 +1,7 @@
 import axios from 'axios';
-
+const baseURL = import.meta.env.VITE_API_LINK
 const api = axios.create({
-  baseURL: 'https://site--serenity-backend--szn96vspx9xb.code.run/api', // الرابط المذكور في API Documentation
+  baseURL: baseURL, // الرابط المذكور في API Documentation
 });
 
 // إضافة التوكن تلقائياً في الطلبات الخاصة بالأدمن
