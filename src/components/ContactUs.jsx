@@ -68,12 +68,12 @@ const ContactUs = () => {
               {/* Address */}
               <InfoRow icon={<MapPin className="w-5 h-5 shrink-0" />} label={isRtl ? 'العنوان' : 'Address'}>
                 {isRtl
-                  ? <>٢٥ ش ميشيل بخوم: متفرع من شارع صدق، أمام كوستا كافيه</>
-                  : <>25 Michel Bakhoom St, off Sadek St, in front of Costa Café</>}
+                  ? <>46 عباس العقاد مدينه نصر الدور السادس</>
+                  : <>46 Abbas El Akkad Street, Nasr City, 6th Floor</>}
               </InfoRow>
               {/* Phone */}
               <InfoRow icon={<Phone className="w-5 h-5 shrink-0" />} label={isRtl ? 'رقم الهاتف' : 'Phone Number'}>
-                <a href="tel:+201140409020" className="hover:text-spa-gold transition-colors">
+                <a href="tel:+201006768004" className="hover:text-spa-gold transition-colors">
                   +20 100 676 8004
                 </a>
               </InfoRow>
