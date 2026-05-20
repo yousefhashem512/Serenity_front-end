@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Home, ClipboardList, Images as ImageIcon, Phone, ShieldAlert, X } from 'lucide-react';
+import { Home, ClipboardList, Images as ImageIcon, Phone, ShieldAlert, X ,HeartHandshake } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useSidebar } from '../../hooks/useSidebar';
 import logoImg from '../../assets/image/Logo.png';
-
 const navItems = [
   { id: 'hero', label: 'Home', labelAr: 'الرئيسية', icon: <Home size={18} strokeWidth={1.5} /> },
   { id: 'benefits', label: 'Benefits', labelAr: 'فوائد', icon: <ClipboardList size={18} strokeWidth={1.5} /> },
+  { id: 'services', label: 'Services', labelAr: 'الخدمات', icon: <HeartHandshake size={18} strokeWidth={1.5} /> },
   { id: 'gallery', label: 'Gallery', labelAr: 'معرض الصور', icon: <ImageIcon size={18} strokeWidth={1.5} /> },
   { id: 'about', label: 'About', labelAr: 'عن سيرينتي', icon: <ShieldAlert size={18} strokeWidth={1.5} /> },
   { id: 'contact', label: 'Contact', labelAr: 'تواصل معنا', icon: <Phone size={18} strokeWidth={1.5} /> },

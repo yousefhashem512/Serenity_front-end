@@ -52,8 +52,7 @@ const ContactUs = () => {
             <div className="w-full overflow-hidden  shadow-[0_20px_60px_rgba(54,41,27,0.13)] border border-spa-border aspect-[4/3] lg:aspect-auto lg:h-[420px]">
               <iframe
                 title={isRtl ? 'خريطة الموقع' : 'Location Map'}
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.4!2d31.3!3d30.05!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzAwLjAiTiAzMcKwMTgnMDAuMCJF!5e0!3m2!1sen!2seg!4v1620000000000!5m2!1sen!2seg"
-                width="100%"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d13812.723152698733!2d31.340013869064336!3d30.0603519260358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzDCsDAzJzQxLjQiTiAzMcKwMjAnMTYuMSJF!5e0!3m2!1sar!2seg!4v1778598867785!5m2!1sar!2seg"                width="100%"
                 height="100%"
                 style={{ border: 0, display: 'block' }}
                 allowFullScreen
@@ -74,7 +73,7 @@ const ContactUs = () => {
               {/* Phone */}
               <InfoRow icon={<Phone className="w-5 h-5 shrink-0" />} label={isRtl ? 'رقم الهاتف' : 'Phone Number'}>
                 <a href="tel:+201006768004" className="hover:text-spa-gold transition-colors">
-                  +20 100 676 8004
+                  {isRtl ? '01006768004' : '+20 100 676 8004'}
                 </a>
               </InfoRow>
               {/* Email */}

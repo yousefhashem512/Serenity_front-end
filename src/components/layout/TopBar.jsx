@@ -20,7 +20,7 @@ const TopBar = () => {
           onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')}
           className="hover:text-spa-gold transition-colors font-bold"
         >
-          {lang === 'ar' ? 'EN' : 'AR'}
+          {lang === 'ar' ? 'EN' : 'عربي'}
         </button>
       </div>
 
@@ -37,12 +37,12 @@ const TopBar = () => {
       </div>
 
       {/* جهة اليمين (في RTL): اسم المركز الصغير */}
-      <div className="flex items-center gap-3 text-spa-brown-mid font-bold">
+      <div className="flex items-center gap-3 text-spa-input">
 
         {/* رابط الشروط: يستخدم Link الخاص برياكت روتر */}
         <Link
           to="/terms"
-          className="hover:text-spa-gold transition-colors cursor-pointer whitespace-nowrap"
+          className="hover:text-spa-gold text-[12px] transition-colors cursor-pointer whitespace-nowrap"
         >
           {lang === 'ar' ? 'الشروط' : 'Terms'}
         </Link>
@@ -51,7 +51,7 @@ const TopBar = () => {
         {/* رابط السياسات: يستخدم Link الخاص برياكت روتر */}
         <Link
           to="/policies"
-          className="hover:text-spa-gold transition-colors cursor-pointer whitespace-nowrap"
+          className="hover:text-spa-gold text-[12px] transition-colors cursor-pointer whitespace-nowrap"
         >
           {lang === 'ar' ? 'السياسات' : 'Policies'}
         </Link>

@@ -16,7 +16,7 @@ const Login = () => {
     mutationFn: loginAdmin,
     onSuccess: (data) => {
       login(data.token);
-      navigate('/dashboard/analytics', { replace: true });
+      navigate('/blacknode/analytics', { replace: true });
     },
     onError: () => {
       setError('البريد الإلكتروني أو كلمة المرور خاطئة');

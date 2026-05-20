@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import '../assets/style/HeroSection.css';
 import api from '../api/axios';
 import Button from './ui/button';
+import SubTitle from './ui/SubTitle';
 const Hero = () => {
   const { lang } = useLanguage();
   const isRtl = lang === 'ar';
@@ -151,14 +152,14 @@ const Hero = () => {
       const response = await api.post('/bookings/create', formData);
       setBookingSuccess(response.data?.message || (isRtl ? 'تم تأكيد الحجز' : 'Booking confirmed'));
       // make link to confirm oayment in response.data.data.paymentUrl
-      window.location.href = response.data.data.paymentUrl;
+      window.location.href = response.data?.paymentUrl;
     } catch (error) {
-      setBookingError(error.response?.data?.message || (isRtl ? 'فشل في تأكيد الحجز' : 'Unable to confirm booking'));
+      setBookingError(error.response.data?.message || (isRtl ? 'فشل في تأكيد الحجز' : 'Unable to confirm booking'));
     }
   };
 
   return (
-    <section id="hero" className="min-h-screen relative flex items-center justify-center py-20 px-6 md:px-10 bg-spa-bg">
+    <section id="hero" className="min-h-screen w-full relative flex justify-center items-center  py-20 px-6 md:px-10 bg-spa-bg">
       <div className={`image absolute ${isRtl ? 'left-0 ' : 'right-0  scale-x-[-1]'} z-100 top-0 w-[200px] object-cover pointer-events-none`}>
         <img
           src={backgroundImg}
@@ -211,8 +212,10 @@ const Hero = () => {
                 : "Our curated cupping protocols combine ancient wisdom with modern physiological precision to restore your body's natural vitality."}
             </p>
 
+            <SubTitle />
+            
             <div className="w-fit">
-              <Button variant="primary" size="md">
+              <Button variant="primary" className='font-normal' size="md">
                 {isRtl ? 'استكشف الفوائد' : 'EXPLORE BENEFITS'}
               </Button>
             </div>
@@ -222,7 +225,7 @@ const Hero = () => {
           <div className="hero-form">
             <div className="bg-white rounded-xl border border-spa-border p-6 md:p-8 shadow-lg">
               <h2 className="text-xl md:text-2xl font-bold text-spa-gold mb-8 font-cairo text-center xl:text-left">
-                {isRtl ? 'احجز جلسة سيريني الخاصة' : 'Book Your Serenity Session'}
+                {isRtl ? 'احجز جلسة سيرينتي الخاصة' : 'Book Your Serenity Session'}
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-5">
@@ -382,7 +385,7 @@ const Hero = () => {
                     </p>
                   </div>
                 )}
-                <Button variant="primary" className="w-full mt-8" type='submit' size="md">
+                <Button variant="primary"className="w-full mt-8 font-normal" type='submit' size="md">
                   {isRtl ? 'تأكيد الحجز' : 'CONFIRM RESERVATION'}
                 </Button>
               </form>

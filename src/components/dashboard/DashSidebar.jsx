@@ -7,11 +7,11 @@ import { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 
 const NAV_ITEMS = [
-  { to: '/dashboard/analytics', icon: BarChart2, label: 'الإحصائيات' },
-  { to: '/dashboard/bookings', icon: CalendarCheck, label: 'الحجوزات' },
-  { to: '/dashboard/pricing', icon: DollarSign, label: 'الأسعار' },
-  { to: '/dashboard/slots', icon: CalendarX, label: 'المواعيد' },
-  { to: '/dashboard/gallery', icon: Images, label: 'المعرض' },
+  { to: '/blacknode/analytics', icon: BarChart2, label: 'الإحصائيات' },
+  { to: '/blacknode/bookings', icon: CalendarCheck, label: 'الحجوزات' },
+  { to: '/blacknode/pricing', icon: DollarSign, label: 'الأسعار' },
+  { to: '/blacknode/slots', icon: CalendarX, label: 'المواعيد' },
+  { to: '/blacknode/gallery', icon: Images, label: 'المعرض' },
 ];
 
 const DashSidebar = () => {

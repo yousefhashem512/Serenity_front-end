@@ -45,7 +45,7 @@ function App() {
 
               <Route path="/admin/login" element={<Login />} />
               {/* لوحة التحكم */}
-              <Route path="/dashboard" element={<DashLayout />}>
+              <Route path="/blacknode" element={<DashLayout />}>
                 <Route index element={<Navigate to="analytics" replace />} />
                 <Route path="analytics" element={<Analytics />} />
                 <Route path="bookings" element={<Bookings />} />
