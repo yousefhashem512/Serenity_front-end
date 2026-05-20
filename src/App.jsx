@@ -9,6 +9,7 @@ import DashLayout from './layouts/DashLayout';
 import Home from './pages/Website/Home';
 import Terms from './pages/Website/Terms';
 import Policies from './pages/Website/Policies';
+import PaymentStatus from './pages/Website/PaymentStatus';
 
 // صفحات لوحة التحكم
 import Login from './pages/Dashboard/Login';
@@ -41,8 +42,11 @@ function App() {
               </Route>
               <Route path="/terms" element={<Terms />} />
               <Route path="/policies" element={<Policies />} />
-              {/* تسجيل الدخول */}
 
+              {/* صفحة حالة الدفع بعد PayMob */}
+              <Route path="/payment-status" element={<PaymentStatus />} />
+
+              {/* تسجيل الدخول */}
               <Route path="/admin/login" element={<Login />} />
               {/* لوحة التحكم */}
               <Route path="/blacknode" element={<DashLayout />}>

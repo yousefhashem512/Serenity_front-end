@@ -4,24 +4,170 @@ import { useLanguage } from '../context/LanguageContext';
    Five services matching the sessionType values used across the project.
    Icons are SVG inline so there are no extra dependencies.
 ─────────────────────────────────────────────────────────────────────────────── */
+// const SERVICES = [
+//   {
+//     id: 'massage_benefits',
+//     icon: (
+//       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
+//         <path d="M12 36c0-10 4-18 12-20 8 2 12 10 12 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//         <path d="M18 28c0-4 2-7 6-8 4 1 6 4 6 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//         <path d="M24 36v-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//         <circle cx="24" cy="10" r="3" stroke="currentColor" strokeWidth="2.5" />
+//       </svg>
+//     ),
+
+//     tagAr: 'فوائد العلاج',
+//     tagEn: 'THERAPY BENEFITS',
+
+//     titleAr: 'فوائد المساج العلاجى',
+//     titleEn: 'Therapeutic Massage Benefits',
+
+//     descAr: [
+//       'تقليل الشد والتقلصات العضلية',
+//       'تحسين الدورة الدموية',
+//       'المساعدة في الاستشفاء العضلي',
+//       'تقليل ألم الرقبة والظهر والكتف',
+//       'تحسين المرونة والحركة',
+//       'تقليل التوتر والإجهاد',
+//       'تنشيط الجسم وتحسين النوم',
+//       'إخراج الإرهاق العضلي واللاكتيك',
+//       'تحفيز نقاط الطاقة بالجسم بالطريقة الصينية العلاجية',
+//     ],
+
+//     descEn: [
+//       'Reducing muscle tension and spasms',
+//       'Improving blood circulation',
+//       'Supporting muscle recovery',
+//       'Relieving neck, back, and shoulder pain',
+//       'Enhancing flexibility and mobility',
+//       'Reducing stress and fatigue',
+//       'Boosting body activity and improving sleep',
+//       'Eliminating muscle fatigue and lactic acid buildup',
+//       'Stimulating body energy points through traditional Chinese therapeutic techniques',
+//     ],
+//   },
+//   {
+//     id: 'recovery',
+//     icon: (
+//       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
+//         <path d="M12 36c0-10 4-18 12-20 8 2 12 10 12 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//         <path d="M18 28c0-4 2-7 6-8 4 1 6 4 6 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//         <path d="M24 36v-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//         <circle cx="24" cy="10" r="3" stroke="currentColor" strokeWidth="2.5" />
+//       </svg>
+//     ),
+//     tagAr: 'التعافي السريع',
+//     tagEn: 'RAPID RECOVERY',
+//     titleAr: 'جلسة الريكفري',
+//     titleEn: 'Recovery Session',
+//     descAr:
+//       'بروتوكول متخصص لإعادة تأهيل العضلات وتعجيل الشفاء بعد الإجهاد البدني أو الإصابات، يمنحك طاقة متجددة وأداءً أعلى.',
+//     descEn:
+//       'A specialised protocol for muscle rehabilitation and accelerated healing after physical strain or injuries—restoring renewed energy and peak performance.',
+//   },
+//   {
+//     id: 'facial_massage',
+//     icon: (
+//       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
+//         <circle cx="24" cy="20" r="10" stroke="currentColor" strokeWidth="2.5" />
+//         <path d="M16 30c-4 3-6 6-4 8 2 2 6 1 12 1s10 1 12-1c2-2 0-5-4-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//         <path d="M20 18c0-1 1-2 4-2s4 1 4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+//         <circle cx="20" cy="21" r="1.5" fill="currentColor" />
+//         <circle cx="28" cy="21" r="1.5" fill="currentColor" />
+//         <path d="M21 25c.8.8 1.8 1.2 3 1.2s2.2-.4 3-1.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+//       </svg>
+//     ),
+//     tagAr: 'العناية بالبشرة',
+//     tagEn: 'SKIN CARE',
+//     titleAr: 'مساج الوجه',
+//     titleEn: 'Facial Massage',
+//     descAr:
+//       'جلسة مساج وجه متخصصة تُحفّز الدورة الدموية في الجلد وتُقلّل التوتر العضلي وتمنح بشرتك نضارة ملحوظة وإشراقة طبيعية دائمة.',
+//     descEn:
+//       'A specialised facial massage that stimulates skin circulation, reduces muscle tension, and delivers visible freshness and a lasting natural glow.',
+//   },
+//   {
+//     id: 'sports_massage',
+//     icon: (
+//       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
+//         <path d="M10 38l8-16 6 8 5-10 9 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+//         <circle cx="35" cy="13" r="5" stroke="currentColor" strokeWidth="2.5" />
+//         <path d="M30 16l-4 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//       </svg>
+//     ),
+//     tagAr: 'الأداء الرياضي',
+//     tagEn: 'SPORTS PERFORMANCE',
+//     titleAr: 'المساج الرياضي',
+//     titleEn: 'Sports Massage',
+//     descAr:
+//       'علاج موجّه للرياضيين والمجتهدين بدنياً؛ يُفكّك تشنجات العضلات العميقة ويُعيد المرونة الطبيعية ويُقلّل زمن التعافي بين الجلسات.',
+//     descEn:
+//       'Targeted treatment for athletes and the physically active—breaking deep muscle knots, restoring natural flexibility, and shortening recovery time between sessions.',
+//   },
+//   {
+//     id: 'vip',
+//     icon: (
+//       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
+//         <path d="M24 6l4.5 9.1 10 1.5-7.2 7 1.7 10-9-4.7-9 4.7 1.7-10L9.5 16.6l10-1.5L24 6z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+//         <path d="M16 38h16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//         <path d="M19 42h10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+//       </svg>
+//     ),
+//     tagAr: 'تجربة حصرية',
+//     tagEn: 'EXCLUSIVE EXPERIENCE',
+//     titleAr: 'الجلسة المميزة VIP',
+//     titleEn: 'VIP Premium Session',
+//     descAr:
+//       'تجربة فاخرة شاملة مع الكابتن يوسف؛ تدمج أفضل أساليب العلاج في جلسة واحدة مخصصة تُصمَّم حول احتياجاتك الفردية لنتائج استثنائية.',
+//     descEn:
+//       'A luxurious all-inclusive experience with Captain Yousef—merging the finest therapeutic techniques in one personalised session designed around your individual needs for exceptional results.',
+//   },
+// ];
+
+
+
+
 const SERVICES = [
   {
-    id: 'hijama',
+    id: 'massage_benefits',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
-        <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2.5" />
-        <path d="M24 14c0 0-8 5-8 12a8 8 0 0 0 16 0c0-7-8-12-8-12z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-        <path d="M24 22v8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M12 36c0-10 4-18 12-20 8 2 12 10 12 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M18 28c0-4 2-7 6-8 4 1 6 4 6 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <path d="M24 36v-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+        <circle cx="24" cy="10" r="3" stroke="currentColor" strokeWidth="2.5" />
       </svg>
     ),
-    tagAr: 'الطب النبوي',
-    tagEn: 'PROPHETIC MEDICINE',
-    titleAr: 'الحجامة العلاجية',
-    titleEn: 'Therapeutic Cupping',
-    descAr:
-      'جلسات حجامة احترافية تجمع بين الطب النبوي والبروتوكولات الحديثة، تُعيد توازن الجسم وتُحسّن الدورة الدموية وتُخلّص من السموم المتراكمة بعمق.',
-    descEn:
-      'Professional cupping sessions that blend Prophetic medicine with modern protocols—restoring body balance, improving blood circulation, and deeply eliminating accumulated toxins.',
+
+    tagAr: 'فوائد العلاج',
+    tagEn: 'THERAPY BENEFITS',
+
+    titleAr: 'فوائد المساج العلاجى',
+    titleEn: 'Therapeutic Massage Benefits',
+
+    descAr: [
+      'تقليل الشد والتقلصات العضلية',
+      'تحسين الدورة الدموية',
+      'المساعدة في الاستشفاء العضلي',
+      'تقليل ألم الرقبة والظهر والكتف',
+      'تحسين المرونة والحركة',
+      'تقليل التوتر والإجهاد',
+      'تنشيط الجسم وتحسين النوم',
+      'إخراج الإرهاق العضلي واللاكتيك',
+      'تحفيز نقاط الطاقة بالجسم بالطريقة الصينية العلاجية',
+    ],
+
+    descEn: [
+      'Reducing muscle tension and spasms',
+      'Improving blood circulation',
+      'Supporting muscle recovery',
+      'Relieving neck, back, and shoulder pain',
+      'Enhancing flexibility and mobility',
+      'Reducing stress and fatigue',
+      'Boosting body activity and improving sleep',
+      'Eliminating muscle fatigue and lactic acid buildup',
+      'Stimulating body energy points through traditional Chinese therapeutic techniques',
+    ],
   },
   {
     id: 'recovery',
@@ -54,14 +200,32 @@ const SERVICES = [
         <path d="M21 25c.8.8 1.8 1.2 3 1.2s2.2-.4 3-1.2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
       </svg>
     ),
+
     tagAr: 'العناية بالبشرة',
     tagEn: 'SKIN CARE',
+
     titleAr: 'مساج الوجه',
     titleEn: 'Facial Massage',
-    descAr:
-      'جلسة مساج وجه متخصصة تُحفّز الدورة الدموية في الجلد وتُقلّل التوتر العضلي وتمنح بشرتك نضارة ملحوظة وإشراقة طبيعية دائمة.',
-    descEn:
-      'A specialised facial massage that stimulates skin circulation, reduces muscle tension, and delivers visible freshness and a lasting natural glow.',
+
+    descAr: [
+      'تحسين الدورة الدموية في الوجه',
+      'تقليل الانتفاخ والإجهاد',
+      'استرخاء عضلات الفك والوجه',
+      'تنشيط البشرة وإعطاء نضارة طبيعية',
+      'المساعدة على تقليل التوتر والصداع',
+      'تحفيز نقاط الطاقة في الوجه',
+      'تحسين الإحساس بالراحة والاسترخاء',
+    ],
+
+    descEn: [
+      'Improving blood circulation in the face',
+      'Reducing puffiness and fatigue',
+      'Relaxing jaw and facial muscles',
+      'Revitalising the skin and giving a natural glow',
+      'Helping reduce stress and headaches',
+      'Stimulating facial energy points',
+      'Enhancing comfort and relaxation',
+    ],
   },
   {
     id: 'sports_massage',
@@ -72,14 +236,24 @@ const SERVICES = [
         <path d="M30 16l-4 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
       </svg>
     ),
+
     tagAr: 'الأداء الرياضي',
     tagEn: 'SPORTS PERFORMANCE',
+
     titleAr: 'المساج الرياضي',
     titleEn: 'Sports Massage',
-    descAr:
-      'علاج موجّه للرياضيين والمجتهدين بدنياً؛ يُفكّك تشنجات العضلات العميقة ويُعيد المرونة الطبيعية ويُقلّل زمن التعافي بين الجلسات.',
-    descEn:
-      'Targeted treatment for athletes and the physically active—breaking deep muscle knots, restoring natural flexibility, and shortening recovery time between sessions.',
+
+    descAr: [
+      'قبل التمرين أو المباراة: يساعد على تنشيط العضلات وزيادة تدفق الدم وتجهيز الجسم للحركة',
+      'بعد التمرين: يقلل الشد العضلي والإجهاد ويساعد على الاستشفاء العضلي',
+      'أثناء الإصابات أو الضغط العضلي: يحسن حركة العضلات ويقلل التشنجات والـ tightness',
+    ],
+
+    descEn: [
+      'Before training or matches: activates muscles, increases blood flow, and prepares the body for movement',
+      'After exercise: reduces muscle tension and fatigue while supporting muscle recovery',
+      'During injuries or muscle stress: improves muscle mobility and reduces tightness and spasms',
+    ],
   },
   {
     id: 'vip',
@@ -106,7 +280,7 @@ const SERVICES = [
 const handleScroll = (e, id) => {
   e.preventDefault();
   const element = document.getElementById(id);
-  
+
   if (element) {
     element.scrollIntoView({ behavior: 'smooth' });
 
@@ -114,7 +288,7 @@ const handleScroll = (e, id) => {
     if (firstInput) {
       // نستخدم setTimeout بسيط لضمان أن التركيز يحدث بعد بدء التمرير
       setTimeout(() => {
-        firstInput.focus({ preventScroll: true }); 
+        firstInput.focus({ preventScroll: true });
       }, 500); // 500ms هي مدة تقريبية لتنفيذ الـ smooth scroll
     }
   }
@@ -166,9 +340,27 @@ const ServiceCard = ({ service, isRtl, index }) => {
       <div className={`w-10 h-[2px] bg-spa-gold ${isRtl ? 'mr-0 ml-auto' : ''}`} />
 
       {/* Description */}
-      <p className="text-spa-brown-text text-sm sm:text-base leading-relaxed font-cairo">
-        {isRtl ? service.descAr : service.descEn}
-      </p>
+
+      <div className="text-spa-brown-text text-sm sm:text-base leading-relaxed font-cairo">
+        {Array.isArray(isRtl ? service.descAr : service.descEn) ? (
+          <ul className="space-y-2">
+            {(isRtl ? service.descAr : service.descEn).map((item, index) => (
+              <li
+                key={index}
+                className={`flex gap-2 ${isRtl ? 'flex-row-reverse text-right' : 'text-left'}`}
+              >
+                <span className="text-spa-gold mt-[2px]">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>
+            {isRtl ? service.descAr : service.descEn}
+          </p>
+        )}
+      </div>
+
     </div>
   );
 };
