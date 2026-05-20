@@ -129,6 +129,46 @@ import { useLanguage } from '../context/LanguageContext';
 
 const SERVICES = [
   {
+    id: 'hijama',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
+        <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2.5" />
+        <path d="M24 14c0 0-8 5-8 12a8 8 0 0 0 16 0c0-7-8-12-8-12z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+        <path d="M24 22v8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    ),
+
+    tagAr: 'الطب النبوي',
+    tagEn: 'PROPHETIC MEDICINE',
+
+    titleAr: 'الحجامة العلاجية',
+    titleEn: 'Therapeutic Cupping',
+
+    descAr: [
+      'قال النبي ﷺ: "خيرُ ما تداويتم به الحجامة"',
+      'تعتمد الحجامة على الكاسات والشفط لتحفيز الدورة الدموية وتقليل الشد العضلي وتحسين الاستشفاء',
+      'تُستخدم حالياً بأساليب حديثة تجمع بين العلم والخبرة العملية',
+      'تحسين الدورة الدموية',
+      'تقليل الشد العضلي',
+      'المساعدة على الاسترخاء',
+      'تحسين الاستشفاء العضلي',
+      'تخفيف الإحساس بالإرهاق والتعب',
+      'تنشيط الجسم بشكل عام',
+    ],
+
+    descEn: [
+      'The Prophet ﷺ said: "The best treatment you use is cupping therapy"',
+      'Cupping therapy relies on suction cups to stimulate blood circulation, reduce muscle tension, and support recovery',
+      'Today, it is practised using modern methods that combine science with practical expertise',
+      'Improving blood circulation',
+      'Reducing muscle tension',
+      'Helping the body relax',
+      'Supporting muscle recovery',
+      'Reducing feelings of fatigue and exhaustion',
+      'Boosting overall body vitality',
+    ],
+  },
+  {
     id: 'massage_benefits',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
@@ -168,25 +208,6 @@ const SERVICES = [
       'Eliminating muscle fatigue and lactic acid buildup',
       'Stimulating body energy points through traditional Chinese therapeutic techniques',
     ],
-  },
-  {
-    id: 'recovery',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
-        <path d="M12 36c0-10 4-18 12-20 8 2 12 10 12 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M18 28c0-4 2-7 6-8 4 1 6 4 6 8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M24 36v-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        <circle cx="24" cy="10" r="3" stroke="currentColor" strokeWidth="2.5" />
-      </svg>
-    ),
-    tagAr: 'التعافي السريع',
-    tagEn: 'RAPID RECOVERY',
-    titleAr: 'جلسة الريكفري',
-    titleEn: 'Recovery Session',
-    descAr:
-      'بروتوكول متخصص لإعادة تأهيل العضلات وتعجيل الشفاء بعد الإجهاد البدني أو الإصابات، يمنحك طاقة متجددة وأداءً أعلى.',
-    descEn:
-      'A specialised protocol for muscle rehabilitation and accelerated healing after physical strain or injuries—restoring renewed energy and peak performance.',
   },
   {
     id: 'facial_massage',
@@ -296,8 +317,6 @@ const handleScroll = (e, id) => {
 
 /* ─── Service Card ──────────────────────────────────────────────────────────── */
 const ServiceCard = ({ service, isRtl, index }) => {
-  const isEven = index % 2 === 1;
-
   return (
     <div
       className={`
@@ -308,15 +327,6 @@ const ServiceCard = ({ service, isRtl, index }) => {
         ${isRtl ? 'text-right' : 'text-left'}
       `}
     >
-      {/* Decorative corner accent */}
-      <div
-        className={`
-          absolute top-0 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100
-          transition-opacity duration-500 pointer-events-none
-          ${isEven ? 'bg-spa-gold/5' : 'bg-spa-brown-dark/4'}
-          ${isRtl ? 'left-0 -translate-x-1/2 -translate-y-1/2' : 'right-0 translate-x-1/2 -translate-y-1/2'}
-        `}
-      />
 
       {/* Icon */}
       <div className={`flex ${isRtl ? 'justify-end' : 'justify-start'}`}>
@@ -343,7 +353,7 @@ const ServiceCard = ({ service, isRtl, index }) => {
 
       <div className="text-spa-brown-text text-sm sm:text-base leading-relaxed font-cairo">
         {Array.isArray(isRtl ? service.descAr : service.descEn) ? (
-          <ul className="space-y-2">
+          <ul className="space-y-2" style={{ direction: "ltr" }}>
             {(isRtl ? service.descAr : service.descEn).map((item, index) => (
               <li
                 key={index}

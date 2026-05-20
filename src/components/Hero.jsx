@@ -299,7 +299,7 @@ const Hero = () => {
                     >
                       <option value="">{isRtl ? 'اختر نوع الخدمة' : 'Select service type'}</option>
                       <option value="hijama">{isRtl ? 'حجامة' : 'Cupping'}</option>
-                      <option value="recovery">{isRtl ? 'تعافي' : 'Recovery'}</option>
+                      <option value="recovery">{isRtl ? 'المساج العلاجى' : 'Therapeutic Massage'}</option>
                       <option value="facial_massage">{isRtl ? 'مساج الوجه' : 'Face Massage'}</option>
                       <option value="sports_massage">{isRtl ? 'مساج رياضي' : 'Sports Massage'}</option>
                       <option value="vip">{isRtl ? 'جلسه مميزة مع كابتن يوسف' : 'Vip Session With Catpian Yousef'}</option>

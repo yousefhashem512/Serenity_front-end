@@ -28,7 +28,7 @@ const PAYMENT_LABELS = {
 
 const SESSION_OPTIONS = [
   { value: 'hijama', label: 'حجامة', priceKey: 'hijamaPrice' },
-  { value: 'recovery', label: 'ريكفري', priceKey: 'recoveryPrice' },
+  { value: 'recovery', label: 'المساج العلاجى', priceKey: 'recoveryPrice' },
   { value: 'facial_massage', label: 'مساج وجه', priceKey: 'facialMassagePrice' },
   { value: 'sports_massage', label: 'مساج رياضي', priceKey: 'sportsMassagePrice' },
   { value: 'vip', label: 'جلسة VIP مع كابتن يوسف', priceKey: 'vipSeccionPrice' },
