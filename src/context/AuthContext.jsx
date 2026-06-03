@@ -9,7 +9,7 @@ const COOKIE_OPTIONS = {
   expires: 7, 
   secure: true, 
   sameSite: 'strict' 
-};
+};  
 
 export const AuthProvider = ({ children }) => {
   // Initialize state from cookie
