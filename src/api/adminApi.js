@@ -31,6 +31,9 @@ export const fetchBookings = () =>
 
 export const updateBookingStatus = (id, data) =>
   api.patch(`/admin/updatebooking/${id}`, data).then((r) => r.data);
+
+export const updatePaymentStatus = (id, data) =>
+  api.patch(`/admin/updatepayment/${id}`, data).then((r) => r.data);
 export const createBooking = (data) =>
   api.post('/admin/createbooking', data).then((r) => r.data);
 

@@ -78,7 +78,7 @@ const Footer = () => {
               ) : (
                 <>
                   WEB DESIGN & DEVELOPMENT BY
-                  <a href="https://www.albayan-it.com" target="_blank" rel="noopener noreferrer" className="text-spa-gold font-bold">ALBAYAN IT</a>
+                  <a href="https://www.albayan-eg.com" target="_blank" rel="noopener noreferrer" className="text-spa-gold font-bold">ALBAYAN IT</a>
                 </>
               )}
             </p>

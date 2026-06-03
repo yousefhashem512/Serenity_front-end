@@ -7,6 +7,7 @@ import '../assets/style/HeroSection.css';
 import api from '../api/axios';
 import Button from './ui/button';
 import SubTitle from './ui/SubTitle';
+import BookingConfirmPopup from './BookingConfirmPopup';
 const Hero = () => {
   const { lang } = useLanguage();
   const isRtl = lang === 'ar';
@@ -30,6 +31,9 @@ const Hero = () => {
   const [selectedServicePrice, setSelectedServicePrice] = useState(null);
   const [captains, setCaptains] = useState([]);
   const [loadingCaptains, setLoadingCaptains] = useState(false);
+
+  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
+  const [confirmedBooking, setConfirmedBooking] = useState(null);
 
   // filter captain in vip seesion
   const visibleCaptains = formData.sessionType === 'vip'
@@ -138,6 +142,30 @@ const Hero = () => {
   }, [formData.captainId, formData.date, formData.gender]);
 
   //Create booking
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setBookingError('');
+  //   setBookingSuccess('');
+
+  //   if (!formData.timeSlot) {
+  //     setBookingError(isRtl ? 'يرجى اختيار موعد متاح' : 'Please select an available time');
+  //     return;
+  //   }
+
+  //   try {
+  //     const response = await api.post('/bookings/create', formData);
+  //     setBookingSuccess(response.data?.message || (isRtl ? 'تم تأكيد الحجز' : 'Booking confirmed'));
+
+
+
+
+  //     // make link to confirm oayment in response.data.data.paymentUrl
+  //     // window.location.href = response.data?.paymentUrl;
+  //   } catch (error) {
+  //     setBookingError(error.response.data?.message || (isRtl ? 'فشل في تأكيد الحجز' : 'Unable to confirm booking'));
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setBookingError('');
@@ -150,13 +178,27 @@ const Hero = () => {
 
     try {
       const response = await api.post('/bookings/create', formData);
-      setBookingSuccess(response.data?.message || (isRtl ? 'تم تأكيد الحجز' : 'Booking confirmed'));
-      // make link to confirm oayment in response.data.data.paymentUrl
-      window.location.href = response.data?.paymentUrl;
+      console.log("done");
+      // حفظ بيانات الحجز لعرضها في الـ popup
+      setConfirmedBooking({
+        patientName: formData.patientName,
+        sessionType: formData.sessionType,
+        date: formData.date,
+        timeSlot: formData.timeSlot,
+        totalPrice: response.data?.data?.totalPrice ?? selectedServicePrice,
+      });
+
+      // إظهار الـ popup
+      setShowConfirmPopup(true);
+
     } catch (error) {
-      setBookingError(error.response.data?.message || (isRtl ? 'فشل في تأكيد الحجز' : 'Unable to confirm booking'));
+      setBookingError(
+        error.response?.data?.message ||
+        (isRtl ? 'فشل في تأكيد الحجز' : 'Unable to confirm booking')
+      );
     }
   };
+
 
   return (
     <section id="hero" className="min-h-screen w-full relative flex justify-center items-center  py-20 px-6 md:px-10 bg-spa-bg">
@@ -213,7 +255,7 @@ const Hero = () => {
             </p>
 
             <SubTitle />
-            
+
             <div className="w-fit">
               <Button variant="primary" className='font-normal' size="md">
                 {isRtl ? 'استكشف الفوائد' : 'EXPLORE BENEFITS'}
@@ -385,7 +427,7 @@ const Hero = () => {
                     </p>
                   </div>
                 )}
-                <Button variant="primary"className="w-full mt-8 font-normal" type='submit' size="md">
+                <Button variant="primary" className="w-full mt-8 font-normal" type='submit' size="md">
                   {isRtl ? 'تأكيد الحجز' : 'CONFIRM RESERVATION'}
                 </Button>
               </form>
@@ -403,6 +445,15 @@ const Hero = () => {
 
         </div>
       </div>
+
+
+      <BookingConfirmPopup
+        isOpen={showConfirmPopup}
+        onClose={() => setShowConfirmPopup(false)}
+        isRtl={isRtl}
+        booking={confirmedBooking}
+      />
+
     </section>
   );
 };
