@@ -1,9 +1,22 @@
 import axios from 'axios';
 const baseURL = import.meta.env.VITE_API_LINK
 
+
+
+export function safeUrl(url) {
+  if (!url) return "";
+
+  return url.replace(/^http:\/\//i, "https://");
+}
+
+const secureBaseURL = safeUrl(baseURL);
+
+
 const api = axios.create({
-  baseURL: baseURL, // الرابط المذكور في API Documentation
+  // baseURL: baseURL, // الرابط المذكور في API Documentation
+  baseURL: secureBaseURL, // الرابط المذكور في API Documentation
 });
+
 // إضافة التوكن تلقائياً في الطلبات الخاصة بالأدمن
 api.interceptors.request.use((config) => {
   // Replace the localStorage line with this:
@@ -11,7 +24,7 @@ api.interceptors.request.use((config) => {
     .split('; ')
     .find(row => row.startsWith('adminToken='))
     ?.split('=')[1];
-  
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -24,7 +37,7 @@ api.interceptors.response.use(
   (error) => {
     // إنشء كائن خطأ آمن بدون إعرض الرابط الحساس
     const safeError = new Error();
-    
+
     if (error.response) {
       // خطأ من السيرفر
       safeError.message = `خطأ: ${error.response.status}`;
@@ -37,12 +50,12 @@ api.interceptors.response.use(
       // خطأ آخر
       safeError.message = 'حدث خطأ ما';
     }
-    
+
     // تسجيل الخطأ الفعلي في الـ Development فقط
     if (import.meta.env.DEV) {
       console.debug('API Error:', error);
     }
-    
+
     return Promise.reject(safeError);
   }
 );
