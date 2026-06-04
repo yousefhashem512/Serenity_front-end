@@ -25,6 +25,9 @@ api.interceptors.response.use(
     // إنشء كائن خطأ آمن بدون إعرض الرابط الحساس
     const safeError = new Error();
     
+
+
+    
     if (error.response) {
       // خطأ من السيرفر
       safeError.message = `خطأ: ${error.response.status}`;
