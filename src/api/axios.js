@@ -3,18 +3,18 @@ const baseURL = import.meta.env.VITE_API_LINK
 
 
 
-export function safeUrl(url) {
-  if (!url) return "";
+// export function safeUrl(url) {
+//   if (!url) return "";
 
-  return url.replace(/^http:\/\//i, "https://");
-}
+//   return url.replace(/^http:\/\//i, "https://");
+// }
 
-const secureBaseURL = safeUrl(baseURL);
+// const secureBaseURL = safeUrl(baseURL);
 
 
 const api = axios.create({
-  // baseURL: baseURL, // الرابط المذكور في API Documentation
-  baseURL: secureBaseURL, // الرابط المذكور في API Documentation
+  baseURL: baseURL, // الرابط المذكور في API Documentation
+  // baseURL: secureBaseURL, // الرابط المذكور في API Documentation
 });
 
 // إضافة التوكن تلقائياً في الطلبات الخاصة بالأدمن
