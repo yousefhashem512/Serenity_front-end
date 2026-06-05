@@ -12,24 +12,24 @@ import { useLanguage } from '../context/LanguageContext';
 const TESTIMONIALS = [
   {
     avatar: Avatar1,
-    nameAr: 'نور أحمد',
-    nameEn: 'Nour Ahmed',
-    textAr: 'من أول ما دخلت المكان حسيت بالهدوء والنظافة، والفريق كان محترف جداً.',
-    textEn: 'From the moment I walked in, I felt calm. The place was spotless and the team was incredibly professional.',
+    nameAr: 'منه',
+    nameEn: 'Menna',
+    textAr: 'كنت عايزه اقول بجد ان الدكتورة كويسه جدا و فرقت معايا من تاني جلسه وبجد كنت مرتاحه بشكل غير طبيعي.',
+    textEn: 'I really want to say that the doctor is very good and made a difference for me from the second session, and I was truly incredibly comfortable.',
   },
   {
     avatar: Avatar2,
-    nameAr: 'محمد حامد',
-    nameEn: 'Mohamed Hamed',
-    textAr: 'من أول ما دخلت المكان حسيت بالهدوء والنظافة، والفريق كان محترف جداً.',
-    textEn: 'Wonderful atmosphere and highly skilled practitioners. I left feeling completely renewed.',
+    nameAr: 'شيخ محمد الموسي',
+    nameEn: 'Sheikh Mohammed Al Mousa',
+    textAr: 'حقيقه و ليست مجامله خضت جلسات استشفائيه كثيره في عدة دول و افضل جلسه بالنسبالي جلستكم الله يبارك في جهدكم',
+    textEn: 'Honestly, and without any exaggeration, I have undergone many recovery and therapy sessions in several countries, and your session was the best one for me. May God bless your efforts and reward your hard work.',
   },
   {
     avatar: Avatar3,
-    nameAr: 'يوسف هاشم',
-    nameEn: 'Yousef Hashem',
-    textAr: 'من أول ما دخلت المكان حسيت بالهدوء والفريق كان محترف جداً.',
-    textEn: 'Best cupping experience I,ve ever had.Highly recommend Serenity to everyone.',
+    nameAr: 'مروان سمير',
+    nameEn: 'Marwan Samir',
+    textAr: 'راحه رهيبه الواحد صاحي من النوم حاسس اني مولود من جديد تسلم ايديكم',
+    textEn: 'An incredible sense of relief. I woke up feeling like I was born again. Thank you for your amazing work and effort.',
   },
 ];
 

@@ -9,7 +9,7 @@ const Footer = () => {
   const socialLinks = [
     {
       name: 'Instagram',
-      url: 'https://www.instagram.com/serenity_recovry1?igsh=MTQyeWQ2bnR2c3h1cw==',
+      url: 'https://www.instagram.com/serenity_recovery1?igsh=MTQyeWQ2bnR2c3h1cw==',
       path: (
         <>
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -78,7 +78,7 @@ const Footer = () => {
               ) : (
                 <>
                   WEB DESIGN & DEVELOPMENT BY
-                  <a href="https://www.albayan-eg.com" target="_blank" rel="noopener noreferrer" className="text-spa-gold font-bold">ALBAYAN IT</a>
+                  <a href="https://albayan-eg.com" target="_blank" rel="noopener noreferrer" className="text-spa-gold font-bold">ALBAYAN IT</a>
                 </>
               )}
             </p>

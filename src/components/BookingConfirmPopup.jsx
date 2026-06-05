@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { CheckCircle, X, Smartphone, Banknote, Copy, Phone, Check } from 'lucide-react';
+import { CheckCircle, X, Smartphone, Copy, Phone, Check, MessageCircle } from 'lucide-react';
 
 const BookingConfirmPopup = ({ isOpen, onClose, isRtl, booking }) => {
   const [copied, setCopied] = useState(false);
@@ -19,20 +19,21 @@ const BookingConfirmPopup = ({ isOpen, onClose, isRtl, booking }) => {
 
   if (!isOpen) return null;
 
-  const INSTAPAY_NUMBER = '01010101010';
+  const INSTAPAY_NUMBER = '01006768004';
+  const depositAmount = 200
 
   const handleCopy = () => {
-    navigator.clipboard?.writeText(INSTAPAY_NUMBER).catch(() => {});
+    navigator.clipboard?.writeText(INSTAPAY_NUMBER).catch(() => { });
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   const SESSION_AR = {
-    hijama:         'حجامة',
-    recovery:       'ريكفري',
+    hijama: 'حجامة',
+    recovery: 'ريكفري',
     facial_massage: 'مساج وجه',
     sports_massage: 'مساج رياضي',
-    vip:            'جلسة VIP',
+    vip: 'جلسة VIP',
   };
 
   return (
@@ -115,11 +116,11 @@ const BookingConfirmPopup = ({ isOpen, onClose, isRtl, booking }) => {
                       <span className="font-semibold text-spa-brown-dark" dir="ltr">{booking.timeSlot}</span>
                     </div>
                   )}
-                  {booking.totalPrice !== undefined && (
+                  {depositAmount !== undefined && (
                     <div className="border-t border-spa-border pt-2 flex justify-between gap-2">
                       <span className="text-spa-brown-mid font-bold">{isRtl ? 'العربون المطلوب' : 'Deposit Due'}</span>
                       <span className="font-bold text-spa-gold text-base">
-                        {booking.totalPrice} {isRtl ? 'ج.م' : 'EGP'}
+                        {depositAmount} {isRtl ? 'ج.م' : 'EGP'}
                       </span>
                     </div>
                   )}
@@ -155,32 +156,35 @@ const BookingConfirmPopup = ({ isOpen, onClose, isRtl, booking }) => {
                   <button
                     onClick={handleCopy}
                     title={isRtl ? 'نسخ الرقم' : 'Copy number'}
-                    className={`flex-shrink-0 p-2 rounded-lg transition border ${
-                      copied
-                        ? 'text-green-600 bg-green-50 border-green-200'
-                        : 'text-spa-brown-mid hover:text-spa-gold hover:bg-white border-transparent hover:border-spa-border'
-                    }`}
+                    className={`flex-shrink-0 p-2 rounded-lg transition border ${copied
+                      ? 'text-green-600 bg-green-50 border-green-200'
+                      : 'text-spa-brown-mid hover:text-spa-gold hover:bg-white border-transparent hover:border-spa-border'
+                      }`}
                   >
                     {copied ? <Check size={15} /> : <Copy size={15} />}
                   </button>
                 </div>
 
-                {/* Cash */}
-                <div className={`flex items-center gap-4 rounded-xl border border-spa-border bg-spa-bg p-4 ${isRtl ? 'flex-row-reverse text-right' : 'text-left'}`}>
-                  <div className="w-11 h-11 rounded-xl bg-[#AA8453]/10 flex items-center justify-center flex-shrink-0">
-                    <Banknote size={20} className="text-spa-gold" />
+                {/* WhatsApp - Send Proof */}
+                <a
+                  href={`https://wa.me/201006768004?text=${isRtl ? 'مرحباً، أرسل لكم صورة التحويل للعربون' : 'Hello, I am sending you a screenshot of my payment transfer'}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex items-center gap-4 rounded-xl border border-spa-border bg-spa-bg p-4 hover:bg-green-50 transition ${isRtl ? 'flex-row-reverse text-right' : 'text-left'}`}
+                >
+                  <div className="w-11 h-11 rounded-xl bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
+                    <MessageCircle size={20} className="text-[#25D366]" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-xs font-bold uppercase tracking-widest text-spa-gold font-cairo">
-                      {isRtl ? 'دفع كاش' : 'Cash Payment'}
-                    </p>
+                    <p className="text-xs font-bold uppercase tracking-widest text-[#25D366] font-cairo">WhatsApp</p>
                     <p className="text-spa-brown-dark font-semibold text-sm font-cairo mt-0.5">
                       {isRtl
-                        ? 'ادفع العربون عند الوصول إلى المركز'
-                        : 'Pay the deposit upon arrival at the centre'}
+                        ? 'قم بإرسال صورة التحويل عبر واتس اب'
+                        : 'Send payment proof via WhatsApp'}
                     </p>
                   </div>
-                </div>
+                </a>
+
               </div>
 
               {/* Warning note */}
@@ -192,7 +196,7 @@ const BookingConfirmPopup = ({ isOpen, onClose, isRtl, booking }) => {
 
               {/* CTA */}
               <a
-                href="tel:+201010101010"
+                href="tel:+201006768004"
                 className="flex items-center justify-center gap-2 w-full font-bold text-sm uppercase tracking-widest font-cairo text-white bg-gradient-to-r from-[#AA8453] to-[#C5A059] px-6 py-3 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:opacity-90"
               >
                 <Phone size={16} />
