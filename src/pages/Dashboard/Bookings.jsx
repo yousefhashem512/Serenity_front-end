@@ -34,8 +34,10 @@ const PAYMENT_OPTIONS = [
 ];
 
 const SESSION_OPTIONS = [
-  { value: 'hijama', label: 'حجامة', priceKey: 'hijamaPrice' },
-  { value: 'recovery', label: 'المساج العلاجى', priceKey: 'recoveryPrice' },
+  { value: 'hijama', label: 'حجامة كاملة', priceKey: 'hijamaPrice' },
+  { value: 'hijama_upper', label: 'حجامة علوية', priceKey: 'hijamaUpperPrice' },
+  { value: 'recovery', label: 'المساج العلاجى كامل', priceKey: 'recoveryPrice' },
+  { value: 'recovery_upper', label: 'المساج العلاجى العلوية', priceKey: 'recoveryUpperPrice' },
   { value: 'facial_massage', label: 'مساج وجه', priceKey: 'facialMassagePrice' },
   { value: 'sports_massage', label: 'مساج رياضي', priceKey: 'sportsMassagePrice' },
   { value: 'vip', label: 'جلسة VIP مع كابتن يوسف', priceKey: 'vipSeccionPrice' },

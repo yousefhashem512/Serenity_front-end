@@ -89,8 +89,12 @@ const Hero = () => {
       // تحديد سعر الخدمة
       if (serviceType === 'hijama') {
         basePrice = prices.hijamaPrice || 0;
+      } else if (serviceType === 'hijama_upper') {
+        basePrice = prices.hijamaUpperPrice || 0;
       } else if (serviceType === 'recovery') {
         basePrice = prices.recoveryPrice || 0;
+      } else if (serviceType === 'recovery_upper') {
+        basePrice = prices.recoveryUpperPrice || 0;
       } else if (serviceType === 'facial_massage') {
         basePrice = prices.facialMassagePrice || 0;
       } else if (serviceType === 'sports_massage') {
@@ -340,8 +344,10 @@ const Hero = () => {
                       className="w-full px-4 py-2.5 border border-spa-border rounded focus:border-spa-gold focus:outline-none text-spa-brown-dark text-sm transition-colors"
                     >
                       <option value="">{isRtl ? 'اختر نوع الخدمة' : 'Select service type'}</option>
-                      <option value="hijama">{isRtl ? 'حجامة' : 'Cupping'}</option>
-                      <option value="recovery">{isRtl ? 'المساج العلاجى' : 'Therapeutic Massage'}</option>
+                      <option value="hijama">{isRtl ?  'حجامة كاملة' : 'Cupping Full body'}</option>
+                      <option value="hijama_upper">{isRtl ? 'حجامة علوية' : 'Cupping Upper Body'}</option>
+                      <option value="recovery">{isRtl ? 'المساج العلاجى كامل' : 'Therapeutic Massage Full Body'}</option>
+                      <option value="recovery_upper">{isRtl ? 'المساج العلاجى العلوية' : 'Therapeutic Massage Upper Body'}</option>
                       <option value="facial_massage">{isRtl ? 'مساج الوجه' : 'Face Massage'}</option>
                       <option value="sports_massage">{isRtl ? 'مساج رياضي' : 'Sports Massage'}</option>
                       <option value="vip">{isRtl ? 'جلسه مميزة مع كابتن يوسف' : 'Vip Session With Catpian Yousef'}</option>

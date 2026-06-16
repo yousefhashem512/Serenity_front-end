@@ -6,8 +6,8 @@ import { fetchPrices, updatePricing } from '../../api/adminApi';
 const Pricing = () => {
   const queryClient = useQueryClient();
   const [form, setForm] = useState({
-    hijamaPrice: '', recoveryPrice: '',  facialMassagePrice: '',
-    sportsMassagePrice: '', vipSeccionPrice: ''
+    hijamaPrice: '', hijamaUpperPrice: '', recoveryPrice: '', recoveryUpperPrice: '',
+    facialMassagePrice: '', sportsMassagePrice: '', vipSeccionPrice: ''
   });
   const [success, setSuccess] = useState(false);
 
@@ -19,10 +19,12 @@ const Pricing = () => {
 
   useEffect(() => {
     if (data?.data) {
-      const { hijamaPrice, recoveryPrice, facialMassagePrice, sportsMassagePrice, vipSeccionPrice} = data.data;
+      const { hijamaPrice, hijamaUpperPrice, recoveryPrice, recoveryUpperPrice, facialMassagePrice, sportsMassagePrice, vipSeccionPrice } = data.data;
       setForm({
         hijamaPrice: hijamaPrice ?? '',
+        hijamaUpperPrice: hijamaUpperPrice ?? '',
         recoveryPrice: recoveryPrice ?? '',
+        recoveryUpperPrice: recoveryUpperPrice ?? '',
         facialMassagePrice: facialMassagePrice ?? '',
         sportsMassagePrice: sportsMassagePrice ?? '',
         vipSeccionPrice: vipSeccionPrice ?? '',
@@ -43,8 +45,9 @@ const Pricing = () => {
     e.preventDefault();
     mutation.mutate({
       hijamaPrice: Number(form.hijamaPrice),
+      hijamaUpperPrice: Number(form.hijamaUpperPrice),
       recoveryPrice: Number(form.recoveryPrice),
-      leaderIncrement: Number(form.leaderIncrement),
+      recoveryUpperPrice: Number(form.recoveryUpperPrice),
       facialMassagePrice: Number(form.facialMassagePrice),
       sportsMassagePrice: Number(form.sportsMassagePrice),
       vipSeccionPrice: Number(form.vipSeccionPrice),
@@ -54,13 +57,23 @@ const Pricing = () => {
   const fieldConfig = [
     {
       key: 'hijamaPrice',
-      label: 'سعر جلسة الحجامة',
+      label: 'سعر جلسة الحجامة كاملة',
       desc: 'السعر الأساسي لجلسة الحجامة بالجنيه المصري',
     },
     {
+      key: 'hijamaUpperPrice',
+      label: 'سعر جلسة الحجامة العلوية',
+      desc: 'السعر الأساسي لجلسة الحجامة العلوية بالجنيه المصري',
+    },
+    {
       key: 'recoveryPrice',
-      label: 'سعر جلسة الريكفري',
+      label: 'سعر جلسة الريكفري كاملة',
       desc: 'السعر الأساسي لجلسة الريكفري بالجنيه المصري',
+    },
+    {
+      key: 'recoveryUpperPrice',
+      label: 'سعر جلسة الريكفري العلوية',
+      desc: 'السعر الأساسي لجلسة الريكفري العلوية بالجنيه المصري',
     },
     {
       key: 'facialMassagePrice',
