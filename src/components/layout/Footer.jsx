@@ -73,7 +73,8 @@ const Footer = () => {
             <p className="font-cairo text-[10px] text-spa-brown-mid/60 uppercase tracking-[0.15em]">
               {isRtl ? (
                 <>
-                  تطوير وتصميم بواسطة <span className="text-spa-gold font-bold">ELBAYAN IT</span>
+                  تطوير وتصميم بواسطة 
+                  <a href="https://albayan-eg.com" target="_blank" rel="noopener noreferrer" className="text-spa-gold font-bold">ALBAYAN IT</a>
                 </>
               ) : (
                 <>

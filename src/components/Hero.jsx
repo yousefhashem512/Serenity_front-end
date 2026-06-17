@@ -71,6 +71,14 @@ const Hero = () => {
     fetchCaptains();
   }, []);
 
+  const handleScroll = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Show Price when service type or captain changes, and reset time if any of these change
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -261,7 +269,10 @@ const Hero = () => {
             <SubTitle />
 
             <div className="w-fit">
-              <Button variant="primary" className='font-normal' size="md">
+              <Button
+                variant="primary" className='font-normal' size="md"
+                onClick={(e) => handleScroll(e, 'benefits')}
+              >
                 {isRtl ? 'استكشف الفوائد' : 'EXPLORE BENEFITS'}
               </Button>
             </div>
@@ -344,7 +355,7 @@ const Hero = () => {
                       className="w-full px-4 py-2.5 border border-spa-border rounded focus:border-spa-gold focus:outline-none text-spa-brown-dark text-sm transition-colors"
                     >
                       <option value="">{isRtl ? 'اختر نوع الخدمة' : 'Select service type'}</option>
-                      <option value="hijama">{isRtl ?  'حجامة كاملة' : 'Cupping Full body'}</option>
+                      <option value="hijama">{isRtl ? 'حجامة كاملة' : 'Cupping Full body'}</option>
                       <option value="hijama_upper">{isRtl ? 'حجامة علوية' : 'Cupping Upper Body'}</option>
                       <option value="recovery">{isRtl ? 'المساج العلاجى كامل' : 'Therapeutic Massage Full Body'}</option>
                       <option value="recovery_upper">{isRtl ? 'المساج العلاجى العلوية' : 'Therapeutic Massage Upper Body'}</option>
